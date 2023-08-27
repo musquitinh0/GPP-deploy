@@ -1,0 +1,68 @@
+<div class="header">
+  <a href="/home-screen">
+    <img src="assets/icons/back.png">
+  </a>
+</div>
+<div class="Registrar-screen">
+  <div class="left">
+    <img src="/assets/Logo.png" alt="Logo GPP">
+    <div class="line">
+        <h1 style="color: rgba(0, 112, 192, 1);">G</h1><h1>uardinha do</h1>
+    </div>
+    <div class="line">
+        <h1 style="color: rgba(255, 220, 99, 1);">P</h1><h1>arque</h1><h1 style="padding-left: 10px;">do</h1><h1 style="color: rgba(255, 220, 99, 1); padding-left: 10px;">P</h1><h1>ovo</h1>
+    </div>
+  </div>
+
+  <div class="right">
+    <form class="Registrar-box" (ngSubmit)="onSubmit()" #form="ngForm">
+      <h1>Registrar</h1>
+      <div class="text-box">
+        <label for="email">Email</label>
+        <input id="email" name="email" placeholder="Insira o seu email"  type="email" [(ngModel)]="user.email" required>
+      </div>
+      <div class="text-box">
+        <label for="nome">Nome Completo</label>
+        <input id="mone" name="nome" placeholder="Insira o seu nome completo"  type="text" [(ngModel)]="user.full_name" required>
+      </div>
+      <div class="text-box">
+        <label for="nome">CPF</label>
+        <input id="cpf" name="cpf" placeholder="Insira o seu CPF"  type="text" [(ngModel)]="user.cpf" required>
+      </div>
+      <div class="text-box">
+        <label for="date_of_birth">Data de nascimento</label>
+        <input id="date_of_birth" name="date_of_birth" type="date" [(ngModel)]="user.date_of_birth" required>
+      </div>
+      <div class="text-box">
+        <label for="adress">Endereço</label>
+        <input id="adress" name="adress" placeholder="Insira o seu endereço"  type="text" [(ngModel)]="user.address" required>
+      </div>
+      <div class="text-box">
+        <label for="senha">Senha</label>
+        <input id= "senha" name = "senha" placeholder="Insira a sua senha" required type="password" [(ngModel)]="user.password">
+      </div>
+      <div class="text-box">
+        <label for="senhaR">Repita a Senha</label>
+        <input id= "senhaR" name = "senhaR" placeholder="Insira a sua senha" required type="password" [(ngModel)]="passwordConfirm">
+      </div>
+
+      <button type="submit" [disabled]="form.form.invalid">Registrar</button>
+
+      <div class="Registrar-foot">
+        Já possui uma conta? <a href="/login">Fazer Login</a>
+      </div>
+      <!--<div class="line">
+        <hr style="width:40%;text-align:center"> ou <hr style="width:40%;text-align:center"   >
+      </div>-->
+    </form>
+  </div>
+</div>
+
+<div class = "modal-confirmacao" *ngIf="modal">
+  <h3>Insira o código que enviamos para o seu email</h3>
+  <form class="form-confirmacao" #form="ngForm" (submit)="confirma()">
+    <input id="confirmation" name="confirmation" placeholder="Insira o código" type="text" [(ngModel)]="user.confirmation_code" required>
+    <button type="submit" [disabled]="form.form.invalid">Enviar</button>
+  </form>
+</div>
+

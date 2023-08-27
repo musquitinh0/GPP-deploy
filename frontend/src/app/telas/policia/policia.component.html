@@ -1,0 +1,69 @@
+<div class="header">
+    <h1>Página da policia</h1>
+    <a href="/home-screen"><img src="/assets/icons/sair.png" title="Sair"></a>
+</div>
+<div class="policia-page">
+    <div class="side-bar">
+        <div class="item">
+            Inicio
+            <hr>
+        </div>
+        <div class="item">
+            Sobre
+            <hr>
+        </div>
+        <div class="item">
+            Configurações
+            <hr>
+        </div>
+    </div>
+    <div class="content">
+        <div class="busca-container">
+            <div class="busca">
+                <h4>Adicionar Dispositivo encontrado</h4>
+                <hr>
+                <form (ngSubmit)="onSubmit()" #form="ngForm" class="input-form">
+                    <div class="input-wrap">
+                        <label for="marcar-achado">Imei do dispositivo encontrado</label>
+                        <input id="marcar-achado" name="marcar-achado"  placeholder="Insira o Imei" type="text" [(ngModel)]="phone.imei" required>
+                    </div>
+                    <button type="submit" [disabled]="form.form.invalid" class="confirm-button">OK</button>
+                </form>
+            </div>
+            <div class="lista">
+                <h4>Lista de Dispositivos Marcados como encontrados</h4>
+                <hr>
+                <h5 *ngIf="phonesFound.length == 0"> Nenhum dispositivo encontrado!</h5>
+                <ul *ngIf="phonesFound.length> 0" style="width: 100%;">
+                    <li *ngFor="let phone of phonesFound" class="Dispositivos-container">
+                        <h5>{{phone.model}}</h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lista-container">
+            <div class="lista">
+                <h4>Lista de Dispositivos Marcados como Perdidos</h4>
+                <hr>
+                <h5 *ngIf="phones.length == 0"> Nenhum dispositivo Perdido!</h5>
+                <ul *ngIf="phones.length> 0" style="width: 100%;">
+                    <li *ngFor="let phone of phones" class="Dispositivos-container" (click)="ativaModal(phone)">
+                        <h5>{{phone.model}}</h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-dispositivo" *ngIf="modal">
+    <img src ="/assets/icons/close.png" (click)="desativaModal()">
+    <h1>{{phone1.model}}</h1>
+    <h2>Numero: {{phone1.number1}}</h2>
+    <h2>Imei: {{phone1.imei}}</h2>
+    <button (click)="solicitaCorpoDeDelito(phone1)">Solicitar corpo de delito</button>
+</div>
+
+
+

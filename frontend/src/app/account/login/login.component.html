@@ -1,0 +1,54 @@
+<div class="header">
+  <a href="/home-screen">
+    <img src="assets/icons/back.png">
+  </a>
+</div>
+<div class="login-screen">
+  <div class="left">
+    <img src="/assets/Logo.png" alt="Logo GPP">
+    <div class="line">
+        <h1 style="color: rgba(0, 112, 192, 1);">G</h1><h1>uardinha do</h1>
+    </div>
+    <div class="line">
+        <h1 style="color: rgba(255, 220, 99, 1);">P</h1><h1>arque</h1><h1 style="padding-left: 10px;">do</h1><h1 style="color: rgba(255, 220, 99, 1); padding-left: 10px;">P</h1><h1>ovo</h1>
+    </div>
+  </div>
+
+  <div class="right">
+    <form class="login-box" (ngSubmit)="onSubmit()" #form="ngForm">
+      <h1>Login</h1>
+      <div class="text-box">
+        <label for="email">Email</label>
+        <input id="email" name="email" placeholder="Insira o seu email"  type="email" [(ngModel)]="login.email" required>
+      </div>
+      <div class="text-box">
+        <label for="senha">Senha</label>
+        <input id= "senha" name = "senha" placeholder="Insira a sua senha" required type="password" [(ngModel)]="login.password">
+      </div>
+      <div class="remember-me-container">
+        <div>
+          <input id="rememberMe"  type="checkbox">
+          Lembre de mim
+        </div>
+        <a>Esqueceu a senha?</a>
+      </div>
+      <button type="submit" [disabled]="form.form.invalid">Login</button>
+
+      <div class="login-foot">
+        Não possui uma conta? <a href="/create-account">Criar conta</a>
+      </div>
+      <!--<div class="line">
+        <hr style="width:40%;text-align:center"> ou <hr style="width:40%;text-align:center">
+      </div>-->
+    </form>
+  </div>
+</div>
+
+<div class = "modal-confirmacao" *ngIf="modal">
+  <h3>Sua conta ainda não foi confirmada, por favor insira o códio que eviamos para o seu email {{login.email}}</h3>
+  <form class="form-confirmacao" #form="ngForm" (submit)="confirma()">
+    <input id="confirmation" name="confirmation" placeholder="Insira o código" type="text" [(ngModel)]="login.confirmation_code" required>
+    <button type="submit" [disabled]="form.form.invalid">Enviar</button>
+  </form>
+
+</div>

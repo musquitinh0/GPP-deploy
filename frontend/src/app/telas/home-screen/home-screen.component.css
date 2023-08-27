@@ -1,0 +1,183 @@
+.html{
+    margin: 0%;
+    padding: 0%;
+}
+
+.home-screen > *{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+.header{
+    background-color: rgba(0, 112, 192, 1);
+    height: 10vh;
+    width: 100vw;
+}
+
+.home-screen{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.left{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 50%;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
+
+.left > img{
+    width: 80%;
+}
+
+.line{
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.line > h1{
+    padding: 0%;
+    margin: 0%;
+    font-family: 'MyFont';
+    font-size: 80px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.right{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+}
+
+.infos{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 2%;
+}
+
+.infos > h2{
+    padding-left: 2%;
+    margin: 0;
+    width: 85%;
+}
+
+.icon-container{
+    padding: 0;
+    margin: 0;
+    height: 60px;
+    display: flex;
+    width: 60px;
+    border-radius: 15px;
+    background-color: rgba(255, 220, 99, 1);
+    align-items: center;
+    justify-content: center;
+
+}
+
+.icon-container > img{
+    height: 50px;
+    width: 50px;
+    margin: 2%;
+}
+
+.buttons{
+    margin: 2%;
+    display: flex;
+    height: 6%;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-btt{
+    margin: 2%;
+    height: 100%;
+    width: 30%;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(0, 112, 192, 1);
+    color: white;
+}
+
+.register-btt:hover{
+    background-color: rgba(0, 112, 192, .7);
+    cursor: pointer;
+}
+
+.login-btt{
+    margin: 2%;
+    border-style: solid;
+    background-color: white;
+    border-color: rgba(0, 112, 192, 1);
+    border-radius: 12px;
+    height: 100%;
+    width: 30%;
+    border-width: 6px;
+}
+
+.login-btt:hover{
+    background-color: rgba(0, 112, 192, .1);;
+    border-color: rgba(0, 112, 192, .7);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px){
+    .home-screen{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header{
+        height: 5vh;
+    }
+
+    .right{
+        width: 100%;
+        margin-top: 2%;
+    }
+    .left{
+        width: 100%;
+    }
+
+    .line > h1{
+        font-size: 30px;
+    }
+
+    .infos > h2{
+        font-size: 15px;
+    }
+
+    .infos > img{
+        height: 25px;
+    }
+
+    .register-btt{
+        width: 40%;
+        height: 100%;
+    }
+
+    .login-btt{
+        width: 40%;
+        height: 100%;
+    }
+
+    .buttons{
+        height: 10%;
+        margin-top: 4%;
+    }
+
+}
